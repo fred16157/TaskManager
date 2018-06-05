@@ -45,6 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TrackerCheckTimer = new System.Windows.Forms.Timer(this.components);
             this.Refresh_Btn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LastUpdatedTimeLabel = new System.Windows.Forms.Label();
+            this.ProcessKill_Btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,18 +103,18 @@
             // 
             // RefreshTimer
             // 
-            this.RefreshTimer.Enabled = true;
-            this.RefreshTimer.Interval = 10000;
+            this.RefreshTimer.Interval = 50;
             this.RefreshTimer.Tick += new System.EventHandler(this.RefreshTimer_Tick);
             // 
             // TaskListBox
             // 
             this.TaskListBox.FormattingEnabled = true;
             this.TaskListBox.ItemHeight = 12;
-            this.TaskListBox.Location = new System.Drawing.Point(12, 44);
+            this.TaskListBox.Location = new System.Drawing.Point(12, 68);
             this.TaskListBox.Name = "TaskListBox";
-            this.TaskListBox.Size = new System.Drawing.Size(369, 400);
+            this.TaskListBox.Size = new System.Drawing.Size(369, 376);
             this.TaskListBox.TabIndex = 2;
+            this.TaskListBox.SelectedValueChanged += new System.EventHandler(this.TaskListBox_SelectedValueChanged);
             // 
             // ScheduleListBox
             // 
@@ -134,7 +137,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(387, 25);
+            this.label2.Location = new System.Drawing.Point(385, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 5;
@@ -178,11 +181,42 @@
             this.Refresh_Btn.UseVisualStyleBackColor = true;
             this.Refresh_Btn.Click += new System.EventHandler(this.Refresh_Btn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "마지막 새로고침:";
+            // 
+            // LastUpdatedTimeLabel
+            // 
+            this.LastUpdatedTimeLabel.AutoSize = true;
+            this.LastUpdatedTimeLabel.Location = new System.Drawing.Point(116, 46);
+            this.LastUpdatedTimeLabel.Name = "LastUpdatedTimeLabel";
+            this.LastUpdatedTimeLabel.Size = new System.Drawing.Size(0, 12);
+            this.LastUpdatedTimeLabel.TabIndex = 10;
+            // 
+            // ProcessKill_Btn
+            // 
+            this.ProcessKill_Btn.Enabled = false;
+            this.ProcessKill_Btn.Location = new System.Drawing.Point(181, 20);
+            this.ProcessKill_Btn.Name = "ProcessKill_Btn";
+            this.ProcessKill_Btn.Size = new System.Drawing.Size(92, 23);
+            this.ProcessKill_Btn.TabIndex = 11;
+            this.ProcessKill_Btn.Text = "프로세스 종료";
+            this.ProcessKill_Btn.UseVisualStyleBackColor = true;
+            this.ProcessKill_Btn.Click += new System.EventHandler(this.ProcessKill_Btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ProcessKill_Btn);
+            this.Controls.Add(this.LastUpdatedTimeLabel);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Refresh_Btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LogBox);
@@ -219,6 +253,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer TrackerCheckTimer;
         private System.Windows.Forms.Button Refresh_Btn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LastUpdatedTimeLabel;
+        private System.Windows.Forms.Button ProcessKill_Btn;
     }
 }
 
