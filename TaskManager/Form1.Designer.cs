@@ -35,6 +35,7 @@
             this.RunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TrackMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScheduleAdderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddRemoteAddrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.TaskListBox = new System.Windows.Forms.ListBox();
             this.ScheduleListBox = new System.Windows.Forms.ListBox();
@@ -48,6 +49,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.LastUpdatedTimeLabel = new System.Windows.Forms.Label();
             this.ProcessKill_Btn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.RemoteInpectorTgtComboBox = new System.Windows.Forms.ComboBox();
+            this.RemoteInpectorCheckBox = new System.Windows.Forms.CheckBox();
+            this.Host_Btn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +74,8 @@
             this.SettingsMenuItem,
             this.RunToolStripMenuItem,
             this.TrackMenuItem,
-            this.ScheduleAdderToolStripMenuItem});
+            this.ScheduleAdderToolStripMenuItem,
+            this.AddRemoteAddrToolStripMenuItem});
             this.MenuStrip.Name = "MenuStrip";
             this.MenuStrip.Size = new System.Drawing.Size(43, 20);
             this.MenuStrip.Text = "메뉴";
@@ -76,30 +83,37 @@
             // SettingsMenuItem
             // 
             this.SettingsMenuItem.Name = "SettingsMenuItem";
-            this.SettingsMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.SettingsMenuItem.Size = new System.Drawing.Size(154, 22);
             this.SettingsMenuItem.Text = "설정";
             this.SettingsMenuItem.Click += new System.EventHandler(this.SettingsMenuItem_Click);
             // 
             // RunToolStripMenuItem
             // 
             this.RunToolStripMenuItem.Name = "RunToolStripMenuItem";
-            this.RunToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.RunToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.RunToolStripMenuItem.Text = "실행 ";
             this.RunToolStripMenuItem.Click += new System.EventHandler(this.RunToolStripMenuItem_Click);
             // 
             // TrackMenuItem
             // 
             this.TrackMenuItem.Name = "TrackMenuItem";
-            this.TrackMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.TrackMenuItem.Size = new System.Drawing.Size(154, 22);
             this.TrackMenuItem.Text = "트래킹";
             this.TrackMenuItem.Click += new System.EventHandler(this.TrackMenuItem_Click);
             // 
             // ScheduleAdderToolStripMenuItem
             // 
             this.ScheduleAdderToolStripMenuItem.Name = "ScheduleAdderToolStripMenuItem";
-            this.ScheduleAdderToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.ScheduleAdderToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ScheduleAdderToolStripMenuItem.Text = "스케쥴 추가";
             this.ScheduleAdderToolStripMenuItem.Click += new System.EventHandler(this.ScheduleAdderToolStripMenuItem_Click);
+            // 
+            // AddRemoteAddrToolStripMenuItem
+            // 
+            this.AddRemoteAddrToolStripMenuItem.Name = "AddRemoteAddrToolStripMenuItem";
+            this.AddRemoteAddrToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.AddRemoteAddrToolStripMenuItem.Text = "원격 주소 추가";
+            this.AddRemoteAddrToolStripMenuItem.Click += new System.EventHandler(this.AddRemoteAddrToolStripMenuItem_Click);
             // 
             // RefreshTimer
             // 
@@ -110,9 +124,9 @@
             // 
             this.TaskListBox.FormattingEnabled = true;
             this.TaskListBox.ItemHeight = 12;
-            this.TaskListBox.Location = new System.Drawing.Point(12, 68);
+            this.TaskListBox.Location = new System.Drawing.Point(12, 92);
             this.TaskListBox.Name = "TaskListBox";
-            this.TaskListBox.Size = new System.Drawing.Size(369, 376);
+            this.TaskListBox.Size = new System.Drawing.Size(369, 352);
             this.TaskListBox.TabIndex = 2;
             this.TaskListBox.SelectedValueChanged += new System.EventHandler(this.TaskListBox_SelectedValueChanged);
             // 
@@ -128,7 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 26);
+            this.label1.Location = new System.Drawing.Point(13, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 12);
             this.label1.TabIndex = 4;
@@ -173,7 +187,7 @@
             // 
             // Refresh_Btn
             // 
-            this.Refresh_Btn.Location = new System.Drawing.Point(100, 20);
+            this.Refresh_Btn.Location = new System.Drawing.Point(100, 49);
             this.Refresh_Btn.Name = "Refresh_Btn";
             this.Refresh_Btn.Size = new System.Drawing.Size(75, 23);
             this.Refresh_Btn.TabIndex = 8;
@@ -184,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 46);
+            this.label4.Location = new System.Drawing.Point(13, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 12);
             this.label4.TabIndex = 9;
@@ -193,15 +207,16 @@
             // LastUpdatedTimeLabel
             // 
             this.LastUpdatedTimeLabel.AutoSize = true;
-            this.LastUpdatedTimeLabel.Location = new System.Drawing.Point(116, 46);
+            this.LastUpdatedTimeLabel.Location = new System.Drawing.Point(116, 77);
             this.LastUpdatedTimeLabel.Name = "LastUpdatedTimeLabel";
-            this.LastUpdatedTimeLabel.Size = new System.Drawing.Size(0, 12);
+            this.LastUpdatedTimeLabel.Size = new System.Drawing.Size(131, 12);
             this.LastUpdatedTimeLabel.TabIndex = 10;
+            this.LastUpdatedTimeLabel.Text = "(마지막 새로고침 시간)";
             // 
             // ProcessKill_Btn
             // 
             this.ProcessKill_Btn.Enabled = false;
-            this.ProcessKill_Btn.Location = new System.Drawing.Point(181, 20);
+            this.ProcessKill_Btn.Location = new System.Drawing.Point(181, 49);
             this.ProcessKill_Btn.Name = "ProcessKill_Btn";
             this.ProcessKill_Btn.Size = new System.Drawing.Size(92, 23);
             this.ProcessKill_Btn.TabIndex = 11;
@@ -209,11 +224,65 @@
             this.ProcessKill_Btn.UseVisualStyleBackColor = true;
             this.ProcessKill_Btn.Click += new System.EventHandler(this.ProcessKill_Btn_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 12);
+            this.label5.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 12);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "대상:";
+            // 
+            // RemoteInpectorTgtComboBox
+            // 
+            this.RemoteInpectorTgtComboBox.Enabled = false;
+            this.RemoteInpectorTgtComboBox.FormattingEnabled = true;
+            this.RemoteInpectorTgtComboBox.Items.AddRange(new object[] {
+            "(로컬 컴퓨터)"});
+            this.RemoteInpectorTgtComboBox.Location = new System.Drawing.Point(54, 26);
+            this.RemoteInpectorTgtComboBox.Name = "RemoteInpectorTgtComboBox";
+            this.RemoteInpectorTgtComboBox.Size = new System.Drawing.Size(169, 20);
+            this.RemoteInpectorTgtComboBox.TabIndex = 14;
+            // 
+            // RemoteInpectorCheckBox
+            // 
+            this.RemoteInpectorCheckBox.AutoSize = true;
+            this.RemoteInpectorCheckBox.Location = new System.Drawing.Point(229, 30);
+            this.RemoteInpectorCheckBox.Name = "RemoteInpectorCheckBox";
+            this.RemoteInpectorCheckBox.Size = new System.Drawing.Size(152, 16);
+            this.RemoteInpectorCheckBox.TabIndex = 15;
+            this.RemoteInpectorCheckBox.Text = "원격 프로세스 가져오기";
+            this.RemoteInpectorCheckBox.UseVisualStyleBackColor = true;
+            this.RemoteInpectorCheckBox.CheckedChanged += new System.EventHandler(this.RemoteInpectorCheckBox_CheckedChanged);
+            // 
+            // Host_Btn
+            // 
+            this.Host_Btn.Location = new System.Drawing.Point(279, 49);
+            this.Host_Btn.Name = "Host_Btn";
+            this.Host_Btn.Size = new System.Drawing.Size(75, 23);
+            this.Host_Btn.TabIndex = 16;
+            this.Host_Btn.Text = "호스트";
+            this.Host_Btn.UseVisualStyleBackColor = true;
+            this.Host_Btn.Click += new System.EventHandler(this.Host_Btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Host_Btn);
+            this.Controls.Add(this.RemoteInpectorCheckBox);
+            this.Controls.Add(this.RemoteInpectorTgtComboBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ProcessKill_Btn);
             this.Controls.Add(this.LastUpdatedTimeLabel);
             this.Controls.Add(this.label4);
@@ -227,7 +296,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -256,6 +325,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LastUpdatedTimeLabel;
         private System.Windows.Forms.Button ProcessKill_Btn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox RemoteInpectorTgtComboBox;
+        private System.Windows.Forms.CheckBox RemoteInpectorCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem AddRemoteAddrToolStripMenuItem;
+        private System.Windows.Forms.Button Host_Btn;
     }
 }
 
